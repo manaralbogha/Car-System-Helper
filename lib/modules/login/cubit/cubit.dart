@@ -23,6 +23,7 @@ class LoginCubit extends Cubit<LoginStates> {
       },
     ).then((value) {
       print(value.data);
+      print('manar');
 
       loginModel = LoginModel.fromJson(value.data);
       //loginModelForHomeCarOwner = loginModel;
