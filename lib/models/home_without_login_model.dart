@@ -1,0 +1,323 @@
+class HomePage {
+  late HomeWithOutLoginModel home_page;
+  HomePage.fromJson(Map<String, dynamic> json) {
+    home_page = HomeWithOutLoginModel.fromJson(json['home_page']);
+    // print(json);
+  }
+}
+
+class HomeWithOutLoginModel {
+  late List<dynamic> data = [];
+
+  HomeWithOutLoginModel.fromJson(Map<String, dynamic> json) {
+    //data = HomeDataModel.fromJson(json['data']);
+    //data = json['data'].map((item) => HomeDataModel.fromJson(item)).toList();
+
+    json['data'].forEach((element) {
+      // print(json.toString());
+      // print('manar');
+      // print(element.toString());
+
+      data.add(element);
+      // data = (HomeDataModel.fromJson(json['data'])) as List;
+    });
+  }
+}
+
+class HomeDataModel {
+  late String name;
+  late String address;
+  late int capacity;
+  late String specialistID;
+  late List<PrandModel> prands = [];
+  late List<ServicesModel> services = [];
+  HomeDataModel.fromJson(Map<String, dynamic> json) {
+    print(json.toString());
+    name = json['name'];
+    address = json['address_WS'];
+    capacity = json['capacity'];
+    specialistID = json['specialistID'];
+
+    json['prands'].forEach((element) {
+      prands.add(element);
+    });
+    json['services'].forEach((element) {
+      services.add(element);
+    });
+    // prands = json['prands'];
+    (json['prands'] as List?)?.map((dynamic e) => e as String).toList();
+
+    // services = json['services'];
+    (json['services'] as List?)?.map((dynamic e) => e as String).toList();
+  }
+}
+
+class PrandModel {
+  late String nameCar;
+  PrandModel.fromJson(Map<String, dynamic> json) {
+    nameCar = json['name'];
+  }
+}
+
+class ServicesModel {
+  late String nameServices;
+  ServicesModel.fromJson(Map<String, dynamic> json) {
+    nameServices = json['name'];
+  }
+}
+
+/*class PrandsModel {}*/
+/*
+class ClassName {
+  final List<Data>? data;
+
+  ClassName({
+    this.data,
+  });
+
+  ClassName.fromJson(Map<String, dynamic> json)
+      : data = (json['data'] as List?)
+            ?.map((dynamic e) => Data.fromJson(e as Map<String, dynamic>))
+            .toList();
+
+  Map<String, dynamic> toJson() =>
+      {'data': data?.map((e) => e.toJson()).toList()};
+}
+
+class Data {
+  final String? name;
+  final String? addressWS;
+  final int? capacity;
+  final String? specialistID;
+  final List<String>? prands;
+  final List<String>? services;
+
+  Data({
+    this.name,
+    this.addressWS,
+    this.capacity,
+    this.specialistID,
+    this.prands,
+    this.services,
+  });
+
+  Data.fromJson(Map<String, dynamic> json)
+      : name = json['name'] as String?,
+        addressWS = json['address_WS'] as String?,
+        capacity = json['capacity'] as int?,
+        specialistID = json['specialistID'] as String?,
+        prands =
+            (json['prands'] as List?)?.map((dynamic e) => e as String).toList(),
+        services = (json['services'] as List?)
+            ?.map((dynamic e) => e as String)
+            .toList();
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'address_WS': addressWS,
+        'capacity': capacity,
+        'specialistID': specialistID,
+        'prands': prands,
+        'services': services
+      };
+}
+*/
+/*
+
+class ClassName {
+  final HomePage? homePage;
+
+  ClassName({
+    this.homePage,
+  });
+
+  ClassName.fromJson(Map<String, dynamic> json)
+      : homePage = (json['home_page'] as Map<String, dynamic>?) != null
+            ? HomePage.fromJson(json['home_page'] as Map<String, dynamic>)
+            : null;
+
+  Map<String, dynamic> toJson() => {'home_page': homePage?.toJson()};
+}
+
+class HomePage {
+  final List<Data>? data;
+
+  HomePage({
+    this.data,
+  });
+
+  HomePage.fromJson(Map<String, dynamic> json)
+      : data = (json['data'] as List?)
+            ?.map((dynamic e) => Data.fromJson(e as Map<String, dynamic>))
+            .toList();
+
+  Map<String, dynamic> toJson() =>
+      {'data': data?.map((e) => e.toJson()).toList()};
+}
+
+class Data {
+  final String? name;
+  final String? addressWS;
+  final int? capacity;
+  final String? specialistID;
+  final List<String>? prands;
+  final List<String>? services;
+
+  Data({
+    this.name,
+    this.addressWS,
+    this.capacity,
+    this.specialistID,
+    this.prands,
+    this.services,
+  });
+
+  Data.fromJson(Map<String, dynamic> json)
+      : name = json['name'] as String?,
+        addressWS = json['address_WS'] as String?,
+        capacity = json['capacity'] as int?,
+        specialistID = json['specialistID'] as String?,
+        prands =
+            (json['prands'] as List?)?.map((dynamic e) => e as String).toList(),
+        services = (json['services'] as List?)
+            ?.map((dynamic e) => e as String)
+            .toList();
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'address_WS': addressWS,
+        'capacity': capacity,
+        'specialistID': specialistID,
+        'prands': prands,
+        'services': services
+      };
+}
+*/
+
+/*
+class Autogenerated {
+  HomePage? homePage;
+
+  Autogenerated({this.homePage});
+
+  Autogenerated.fromJson(Map<String, dynamic> json) {
+    homePage = json['home_page'] != null
+        ? new HomePage.fromJson(json['home_page'])
+        : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.homePage != null) {
+      data['home_page'] = this.homePage!.toJson();
+    }
+    return data;
+  }
+}
+
+class HomePage {
+  List<Data>? data;
+
+  HomePage({this.data});
+
+  HomePage.fromJson(Map<String, dynamic> json) {
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(new Data.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Data {
+  String? name;
+  String? addressWS;
+  int? capacity;
+  String? specialistID;
+  List<Prands>? prands;
+  List<Services>? services;
+
+  Data(
+      {this.name,
+      this.addressWS,
+      this.capacity,
+      this.specialistID,
+      this.prands,
+      this.services});
+
+  Data.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    addressWS = json['address_WS'];
+    capacity = json['capacity'];
+    specialistID = json['specialistID'];
+    if (json['prands'] != null) {
+      prands = <Prands>[];
+      json['prands'].forEach((v) {
+        prands!.add(new Prands.fromJson(v));
+      });
+    }
+    if (json['services'] != null) {
+      services = <Services>[];
+      json['services'].forEach((v) {
+        services!.add(new Services.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['address_WS'] = this.addressWS;
+    data['capacity'] = this.capacity;
+    data['specialistID'] = this.specialistID;
+    if (this.prands != null) {
+      data['prands'] = this.prands!.map((v) => v.toJson()).toList();
+    }
+    if (this.services != null) {
+      data['services'] = this.services!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Prands {
+  String? name;
+
+  Prands({this.name});
+
+  Prands.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    return data;
+  }
+}
+
+class Services {
+  String? name;
+
+  Services({this.name});
+
+  Services.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    return data;
+  }
+}
+*/
